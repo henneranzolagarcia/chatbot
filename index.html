@@ -23,11 +23,7 @@
     document.getElementById("boton-accionador").onclick = async () => {
       const prompt = document.getElementById("input-prompt").value;
       const res = await fetch("http://localhost:8000/chat/"+prompt)
-      console.log(prompt)
       const datos = await res.json()
-
-      console.log(datos.Respuesta)
-
       document.getElementById("parrafo-llm").textContent = datos.Respuesta
     }
     

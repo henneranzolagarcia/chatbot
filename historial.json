@@ -1,0 +1,12 @@
+{
+    "chat1": [
+     {
+         "humano": "Hola me llamo Alejandro",
+         "maquina": "¡Hola, Alejandro!, ¿En qué puedo ayudarte hoy? "
+     },
+     {
+         "humano": "Cómo me llamo?",
+         "maquina": "¡Te llamas Alejandro!"
+     }
+    ]
+}

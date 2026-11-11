@@ -16,10 +16,17 @@ app.add_middleware(
 
 client = genai.Client()
 
+historial_de_mensajes = []
+
 @app.get("/chat/{saludo}")
 def llamar_ia(saludo):
+    global historial_de_mensajes
+    texto_historial = "/".join(historial_de_mensajes) 
+    print("historial_de_mensajes: ", historial_de_mensajes)
+    print("prompt al LLM: ", saludo + " --- Historial de mensajes: " + texto_historial)
     inferencia = client.interactions.create(
         model="gemini-3.1-flash-lite",
-        input=saludo + historial_de_mensajes
+        input=saludo + " --- Historial de mensajes: " + texto_historial
     )
+    historial_de_mensajes.append(saludo)
     return {"Respuesta": inferencia.output_text }
